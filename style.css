@@ -1,9 +1,284 @@
-body{
-    font-family: -family-sans);
+/* 1. Global Styles & Variables */
+:root {
+    --primary-color: #0D47A1; /* Deep Blue */
+    --secondary-color: #1de9b6; /* Vibrant Teal */
+    --accent-color: #FFAB40; /* Amber */
+    --text-color: #263238; /* Dark Slate Grey */
+    --bg-color: #ECEFF1; /* Light Bluish Grey */
+    --surface-color: #FFFFFF; /* White */
+
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --border-radius-md: 8px;
+    --border-radius-lg: 16px;
+}
+
+/* Base styles and accessibility improvements */
+*, *::before, *::after {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-        background-color: var(--bg-color);
-    color: var(--text-color);
-    line-height: 1.7;
+}
 
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', 'Roboto', system-ui, -apple-system, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* Accessibility: Clear focus state for keyboard navigation */
+a:focus, button:focus, input:focus, [tabindex]:not([tabindex="-1"]):focus {
+    outline: 3px solid var(--accent-color);
+    outline-offset: 2px;
+    border-radius: 4px; /* Optional: adds a slight curve to the outline */
+}
+
+/* Hide the visually hidden label for search but keep for screen readers */
+#Search-container label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* --- 2. Header --- */
+.site-header {
+    background-color: var(--surface-color);
+    padding: 1rem 2rem;
+    box-shadow: var(--shadow-md);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+#Logo-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+#Main-heading {
+    color: var(--primary-color);
+    font-size: 2rem;
+}
+
+#Search-container {
+    flex-grow: 1;
+    min-width: 200px;
+}
+
+#search {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: var(--border-radius-md);
+    font-size: 1rem;
+    transition: all 0.2s ease-in-out;
+}
+
+#search:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(13, 71, 161, 0.1);
+}
+
+#mode-toggle {
+    background-color: var(--primary-color);
+    color: var(--surface-color);
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: var(--border-radius-md);
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+#mode-toggle:hover {
+    background-color: #0a3a82; /* Slightly darker blue on hover */
+}
+
+
+/* --- 3. Bottom Navigation --- */
+.bottom-nav {
+    background-color: var(--primary-color);
+    padding: 0.5rem 1rem;
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.nav-link {
+    display: block;
+    color: var(--surface-color);
+    text-decoration: none;
+    font-weight: bold;
+    padding: 0.8rem 1.2rem;
+    border-radius: var(--border-radius-md);
+    position: relative;
+    transition: background-color 0.3s ease;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    left: 1.2rem;
+    right: 1.2rem;
+    height: 3px;
+    background-color: var(--secondary-color);
+    transform: scaleX(0);
+    transition: transform 0.3s ease-in-out;
+}
+
+.nav-link:hover, .nav-link:focus {
+    background-color: rgba(29, 233, 182, 0.1); /* Light teal background on hover */
+    outline: none; /* Remove default focus as we have custom styling */
+}
+
+.nav-link:hover::after, .nav-link:focus::after {
+    transform: scaleX(1);
+}
+
+/* --- 4. Main Content & Sections --- */
+.site-main {
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+}
+
+.content-section {
+    background-color: var(--surface-color);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-md);
+    padding: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-top: 8px solid;
+}
+
+.content-section:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+}
+
+.section-heading {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+/* Unique top border colors for each section for a vibrant look */
+.content-section:nth-of-type(6n+1) { border-color: #2196F3; } /* Blue */
+.content-section:nth-of-type(6n+2) { border-color: #4CAF50; } /* Green */
+.content-section:nth-of-type(6n+3) { border-color: #F44336; } /* Red */
+.content-section:nth-of-type(6n+4) { border-color: #FFC107; } /* Yellow */
+.content-section:nth-of-type(6n+5) { border-color: #9C27B0; } /* Purple */
+.content-section:nth-of-type(6n+6) { border-color: #E91E63; } /* Pink */
+
+
+/* --- 5. Footer --- */
+.site-footer {
+    background-color: var(--text-color);
+    color: var(--bg-color);
+    text-align: center;
+    padding: 2rem 1rem;
+}
+
+/* --- 6. Responsive Design & Side Menu --- */
+
+/* Initially hide the menu toggle on large screens */
+#menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--primary-color);
+    z-index: 1001; /* Ensure it's above the header */
+}
+
+/* Hide side menu by default */
+#side-menu {
+    display: none; /* Will be flex on small screens */
+}
+
+
+/* Medium and Small Screens (<= 1024px) */
+@media (max-width: 1024px) {
+    /* Hide the main navigation and show the menu toggle button */
+    .bottom-nav {
+        display: none;
+    }
+
+    #menu-toggle {
+        display: block;
+        position: fixed;
+        top: 20px;
+        left: 20px;
+    }
+
+    /* Style the side menu */
+    #side-menu {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 300px;
+        max-width: 80%;
+        background-color: var(--text-color);
+        padding: 6rem 2rem 2rem;
+        z-index: 1000;
+        transform: translateX(-100%);
+        transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        box-shadow: var(--shadow-lg);
+    }
+    
+    /* When the menu is open */
+    #side-menu:not([aria-hidden="true"]) {
+        transform: translateX(0);
+    }
+}
+
+/* Small Mobiles (<= 600px) */
+@media (max-width: 600px) {
+    body {
+        font-size: 0.95rem;
+    }
+    
+    .site-header {
+        padding: 1rem;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    #Main-heading {
+        font-size: 1.8rem;
+    }
+
+    .site-main {
+        padding: 1.5rem;
+        gap: 1.5rem;
+    }
 }
