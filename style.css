@@ -250,14 +250,21 @@ a:focus, button:focus, input:focus, [tabindex]:not([tabindex="-1"]):focus {
         background-color: var(--text-color);
         padding: 6rem 2rem 2rem;
         z-index: 1000;
-        transform: translateX(-100%);
-        transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         box-shadow: var(--shadow-lg);
+
+        /* Accessibility & Animation: Start hidden and off-screen */
+        transform: translateX(-100%);
+        visibility: hidden;
+        /* Define transition for closing: hide visibility *after* transform is done */
+        transition: transform 0.4s ease-in-out, visibility 0s linear 0.4s;
     }
     
     /* When the menu is open, controlled by the button's state */
     #menu-toggle[aria-expanded="true"] ~ #side-menu {
         transform: translateX(0);
+        visibility: visible;
+        /* Define transition for opening: make visible immediately, then transform */
+        transition: transform 0.4s ease-in-out;
     }
 }
 
