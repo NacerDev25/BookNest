@@ -33,7 +33,9 @@ document.addEventListener('DOMContentLoaded', () => {
             // Optional: Focus the first interactive element in the menu
             const firstFocusableElement = sideMenu.querySelector('a, button');
             if (firstFocusableElement) {
-                firstFocusableElement.focus();
+                setTimeout(() => {
+                    firstFocusableElement.focus();
+                }, 100); // Small delay to allow screen reader to announce state change
             }
         } else {
             // Return focus to the toggle button when the menu is closed
