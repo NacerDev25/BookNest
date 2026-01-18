@@ -255,8 +255,8 @@ a:focus, button:focus, input:focus, [tabindex]:not([tabindex="-1"]):focus {
         box-shadow: var(--shadow-lg);
     }
     
-    /* When the menu is open */
-    #side-menu:not([aria-hidden="true"]) {
+    /* When the menu is open, controlled by the button's state */
+    #menu-toggle[aria-expanded="true"] ~ #side-menu {
         transform: translateX(0);
     }
 }
