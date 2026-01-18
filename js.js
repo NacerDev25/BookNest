@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const menuToggle = document.getElementById("menu-toggle");
     const sideMenu = document.getElementById("side-menu");
+    const pageContainer = document.querySelector(".page-container");
     const mainNavList = document.querySelector(".bottom-nav .nav-list");
 
     // --- 1. Populate the side menu on page load ---
@@ -27,7 +28,9 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!sideMenu || !menuToggle) return;
 
         menuToggle.setAttribute('aria-expanded', show);
-        sideMenu.setAttribute('aria-hidden', !show);
+        if (pageContainer) {
+            pageContainer.inert = show; // Make main content inert when menu is open
+        }
 
         if (show) {
             // Optional: Focus the first interactive element in the menu
