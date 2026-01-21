@@ -296,3 +296,68 @@ a:focus, button:focus, input:focus, [tabindex]:not([tabindex="-1"]):focus {
         gap: 1.5rem;
     }
 }
+
+/* --- 7. Book Card --- */
+.book-card {
+    display: flex;
+    flex-direction: column; /* Mobile-first: stack elements vertically */
+    gap: 1rem;
+    align-items: center; /* Center items for the column layout */
+    margin-top: 1.5rem; /* Add some space below the section heading */
+}
+
+.book-card__title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    text-align: center;
+}
+
+.book-card__image-link {
+    display: block;
+    max-width: 200px; /* Control image size on mobile */
+}
+
+.book-card__image {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-md);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.book-card__image:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-lg);
+}
+
+.book-card__summary {
+    font-size: 1rem;
+    line-height: 1.6;
+    text-align: center;
+}
+
+/* Responsive layout for larger screens */
+@media (min-width: 768px) {
+    .book-card {
+        flex-direction: row; /* Switch to horizontal layout */
+        align-items: flex-start; /* Align items to the top */
+        text-align: left;
+        gap: 2rem;
+    }
+
+    .book-card__image-link {
+        flex: 0 0 150px; /* Set a fixed width for the image container */
+        max-width: none; /* Reset mobile max-width */
+    }
+
+    .book-card__title,
+    .book-card__summary {
+        text-align: left; /* Align text to the left */
+    }
+
+    .book-card__title {
+        margin-top: -5px; /* Minor adjustment to align title better with top of image */
+    }
+}
