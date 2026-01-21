@@ -244,6 +244,10 @@ a:focus, button:focus, input:focus, [tabindex]:not([tabindex="-1"]):focus {
         left: 20px;
     }
 
+    .page-container {
+        padding-left: 65px;
+    }
+
     /* Style the side menu */
     #side-menu {
         display: flex;
