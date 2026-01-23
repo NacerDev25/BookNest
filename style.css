@@ -83,6 +83,8 @@ a:focus, button:focus, input:focus, [tabindex]:not([tabindex="-1"]):focus {
 #Main-heading {
     color: var(--primary-color);
     font-size: 2rem;
+    text-align: center; /* Added for centering */
+    margin-bottom: 0.5rem; /* Reduced space below the heading */
 }
 
 #Search-container {
@@ -108,10 +110,10 @@ a:focus, button:focus, input:focus, [tabindex]:not([tabindex="-1"]):focus {
     background-color: var(--primary-color);
     color: var(--surface-color);
     border: none;
-    padding: 0.75rem 1.5rem;
+    padding: 0.6rem 1.2rem; /* Reduced padding */
     font-size: 1rem;
     font-weight: bold;
-    border-radius: var(--border-radius-md);
+    border-radius: 12px; /* Changed to 12px */
     cursor: pointer;
     transition: background-color 0.2s;
     display: flex;
@@ -198,6 +200,7 @@ a:focus, button:focus, input:focus, [tabindex]:not([tabindex="-1"]):focus {
 .section-heading {
     color: var(--primary-color);
     margin-bottom: 1rem;
+    padding-right: 20px; /* Added for RTL support */
 }
 
 /* Unique top border colors for each section for a vibrant look */
