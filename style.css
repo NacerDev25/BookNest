@@ -85,6 +85,9 @@ a:focus, button:focus, input:focus, [tabindex]:not([tabindex="-1"]):focus {
     font-size: 2rem;
     text-align: center; /* Added for centering */
     margin-bottom: 0.5rem; /* Reduced space below the heading */
+    border: none; /* Ensure no border */
+    outline: none; /* Ensure no outline */
+    box-shadow: none; /* Ensure no box-shadow */
 }
 
 #Search-container {
