@@ -304,6 +304,9 @@ a:focus, button:focus, input:focus, [tabindex]:not([tabindex="-1"]):focus {
 
     #Main-heading {
         font-size: 1.8rem;
+        border: none; /* Ensure no border on mobile */
+        outline: none; /* Ensure no outline on mobile */
+        box-shadow: none; /* Ensure no box-shadow on mobile */
     }
 
     .site-main {
