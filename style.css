@@ -114,6 +114,9 @@ a:focus, button:focus, input:focus, [tabindex]:not([tabindex="-1"]):focus {
     border-radius: var(--border-radius-md);
     cursor: pointer;
     transition: background-color 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
 }
 
 #mode-toggle:hover {
