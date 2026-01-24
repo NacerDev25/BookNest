@@ -87,7 +87,7 @@ a:focus, button:focus, input:focus, [tabindex]:not([tabindex="-1"]):focus {
     font-weight: bold;
     color: var(--primary-color);
     line-height: 1; /* Adjust line-height to help with vertical alignment */
-    transform: translateY(-3px); /* Fine-tune vertical alignment */
+    transform: translateY(-5px); /* Fine-tune vertical alignment */
 }
 
 /* Control the SVG size via CSS for better scalability */
