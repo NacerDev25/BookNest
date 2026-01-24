@@ -82,10 +82,12 @@ a:focus, button:focus, input:focus, [tabindex]:not([tabindex="-1"]):focus {
 
 /* Style the 'B' to be more prominent and balanced */
 #Logo-container span {
+    display: inline-block; /* Ensure transform is applied correctly */
     font-size: 2.5rem; /* Make it larger */
     font-weight: bold;
     color: var(--primary-color);
     line-height: 1; /* Adjust line-height to help with vertical alignment */
+    transform: translateY(-3px); /* Fine-tune vertical alignment */
 }
 
 /* Control the SVG size via CSS for better scalability */
@@ -313,7 +315,7 @@ a:focus, button:focus, input:focus, [tabindex]:not([tabindex="-1"]):focus {
     .site-header {
         padding: 1rem;
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center; /* Changed to center header items */
     }
 
     #Main-heading {
@@ -326,6 +328,11 @@ a:focus, button:focus, input:focus, [tabindex]:not([tabindex="-1"]):focus {
     .site-main {
         padding: 1.5rem;
         gap: 1.5rem;
+    }
+
+    /* Add space below the mode toggle button */
+    #mode-toggle {
+        margin-bottom: 1rem;
     }
 
     /* Adjust logo size for small screens */
