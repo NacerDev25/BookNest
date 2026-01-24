@@ -327,6 +327,16 @@ a:focus, button:focus, input:focus, [tabindex]:not([tabindex="-1"]):focus {
         padding: 1.5rem;
         gap: 1.5rem;
     }
+
+    /* Adjust logo size for small screens */
+    #Logo-container span {
+        font-size: 2rem; /* Slightly smaller font for mobile */
+    }
+
+    #Logo-container svg {
+        width: 40px; /* Slightly smaller icon for mobile */
+        height: 40px;
+    }
 }
 
 /* --- 7. Book Card --- */
