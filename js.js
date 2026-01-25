@@ -95,16 +95,23 @@ document.addEventListener('DOMContentLoaded', () => {
     if (profileBtn && loginModalOverlay && closeModalBtn && emailInput) {
         // Function to open the modal
         const openModal = () => {
-            loginModalOverlay.style.display = 'flex'; // Use style to show
+            loginModalOverlay.classList.add('visible'); // Add 'visible' class
             // Set focus to the email input for accessibility
             setTimeout(() => emailInput.focus(), 100);
         };
 
         // Function to close the modal
         const closeModal = () => {
-            loginModalOverlay.style.display = 'none'; // Use style to hide
-            // Return focus to the profile button
-            profileBtn.focus();
+            // First, remove the 'visible' class which triggers the CSS transition for closing
+            loginModalOverlay.classList.remove('visible');
+            
+            // Wait for the CSS transition on the overlay to end before returning focus
+            // This ensures focus is returned after the modal has visually disappeared
+            loginModalOverlay.addEventListener('transitionend', function handler() {
+                profileBtn.focus(); // Return focus to the profile button
+                // Remove the event listener to prevent it from firing on subsequent transitions
+                loginModalOverlay.removeEventListener('transitionend', handler);
+            }, { once: true }); // Use { once: true } to automatically remove the listener after it runs
         };
 
         // Event listener to open the modal
@@ -130,7 +137,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Event listener to close the modal with the Escape key
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && loginModalOverlay.style.display === 'flex') {
+            // Check if the modal is currently visible by checking the 'visible' class
+            if (e.key === 'Escape' && loginModalOverlay.classList.contains('visible')) {
                 closeModal();
             }
         });
