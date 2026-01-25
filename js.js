@@ -95,23 +95,17 @@ document.addEventListener('DOMContentLoaded', () => {
     if (profileBtn && loginModalOverlay && closeModalBtn && emailInput) {
         // Function to open the modal
         const openModal = () => {
-            loginModalOverlay.classList.add('visible'); // Add 'visible' class
+            loginModalOverlay.style.display = 'flex';
             // Set focus to the email input for accessibility
             setTimeout(() => emailInput.focus(), 100);
         };
 
         // Function to close the modal
         const closeModal = () => {
-            // First, remove the 'visible' class which triggers the CSS transition for closing
-            loginModalOverlay.classList.remove('visible');
-            
-            // Wait for the CSS transition on the overlay to end before returning focus
-            // This ensures focus is returned after the modal has visually disappeared
-            loginModalOverlay.addEventListener('transitionend', function handler() {
-                profileBtn.focus(); // Return focus to the profile button
-                // Remove the event listener to prevent it from firing on subsequent transitions
-                loginModalOverlay.removeEventListener('transitionend', handler);
-            }, { once: true }); // Use { once: true } to automatically remove the listener after it runs
+            loginModalOverlay.style.display = 'none';
+            // Return focus to the profile button that opened the modal.
+            // Using a small timeout ensures the focus is set correctly after the browser has processed the display change.
+            setTimeout(() => profileBtn.focus(), 0);
         };
 
         // Event listener to open the modal
@@ -128,8 +122,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Event listener to close the modal by clicking the overlay
         loginModalOverlay.addEventListener('click', (e) => {
-            // e.target is the element that was clicked
-            // We only want to close if the dark overlay itself is clicked
             if (e.target === loginModalOverlay) {
                 closeModal();
             }
@@ -137,8 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Event listener to close the modal with the Escape key
         document.addEventListener('keydown', (e) => {
-            // Check if the modal is currently visible by checking the 'visible' class
-            if (e.key === 'Escape' && loginModalOverlay.classList.contains('visible')) {
+            if (e.key === 'Escape' && loginModalOverlay.style.display === 'flex') {
                 closeModal();
             }
         });
