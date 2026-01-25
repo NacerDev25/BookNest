@@ -85,4 +85,54 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initial state setup
     toggleMenu(false); // Ensure menu is closed on page load
+
+    // --- 4. Login Modal Functionality ---
+    const profileBtn = document.querySelector('.profile-container');
+    const loginModalOverlay = document.getElementById('login-modal-overlay');
+    const closeModalBtn = document.getElementById('modal-close-btn');
+    const emailInput = document.getElementById('email-input');
+
+    if (profileBtn && loginModalOverlay && closeModalBtn && emailInput) {
+        // Function to open the modal
+        const openModal = () => {
+            loginModalOverlay.style.display = 'flex'; // Use style to show
+            // Set focus to the email input for accessibility
+            setTimeout(() => emailInput.focus(), 100);
+        };
+
+        // Function to close the modal
+        const closeModal = () => {
+            loginModalOverlay.style.display = 'none'; // Use style to hide
+            // Return focus to the profile button
+            profileBtn.focus();
+        };
+
+        // Event listener to open the modal
+        profileBtn.addEventListener('click', openModal);
+        profileBtn.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                openModal();
+            }
+        });
+
+        // Event listener to close the modal with the button
+        closeModalBtn.addEventListener('click', closeModal);
+
+        // Event listener to close the modal by clicking the overlay
+        loginModalOverlay.addEventListener('click', (e) => {
+            // e.target is the element that was clicked
+            // We only want to close if the dark overlay itself is clicked
+            if (e.target === loginModalOverlay) {
+                closeModal();
+            }
+        });
+
+        // Event listener to close the modal with the Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && loginModalOverlay.style.display === 'flex') {
+                closeModal();
+            }
+        });
+    }
 });
