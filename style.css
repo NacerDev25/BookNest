@@ -410,3 +410,23 @@ a:focus, button:focus, input:focus, [tabindex]:not([tabindex="-1"]):focus {
         margin-top: -5px; /* Minor adjustment to align title better with top of image */
     }
 }
+
+/* --- Profile Container Styles --- */
+.profile-container {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s;
+    outline: none;
+}
+
+.profile-container:hover {
+    transform: scale(1.1); /* تكبير بسيط عند تمرير الماوس */
+}
+
+/* لضمان ظهور إطار عند التنقل بواسطة الكيبورد (Accessibility) */
+.profile-container:focus {
+    border: 2px solid #0047AB;
+    border-radius: 50%;
+}
