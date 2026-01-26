@@ -435,7 +435,7 @@ a:focus, button:focus, input:focus, [tabindex]:not([tabindex="-1"]):focus {
 /* The modal box itself */
 .modal-box {
     background-color: var(--surface-color);
-    padding: 2.5rem;
+    padding: 2.5rem 2.5rem 3.5rem 2.5rem;
     border-radius: var(--border-radius-lg);
     box-shadow: var(--shadow-lg);
     max-width: 500px;
