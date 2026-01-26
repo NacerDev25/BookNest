@@ -95,14 +95,14 @@ document.addEventListener('DOMContentLoaded', () => {
     if (profileBtn && loginModalOverlay && closeModalBtn && emailInput) {
         // Function to open the modal
         const openModal = () => {
-            loginModalOverlay.style.display = 'flex';
+            loginModalOverlay.classList.add('visible');
             // Set focus to the email input for accessibility
             setTimeout(() => emailInput.focus(), 100);
         };
 
         // Function to close the modal
         const closeModal = () => {
-            loginModalOverlay.style.display = 'none';
+            loginModalOverlay.classList.remove('visible');
             // Return focus to the profile button that opened the modal.
             // Using a small timeout ensures the focus is set correctly after the browser has processed the display change.
             setTimeout(() => profileBtn.focus(), 0);
