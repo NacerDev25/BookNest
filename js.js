@@ -134,4 +134,48 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // --- 5. Dark/Light Mode Toggle ---
+    const modeToggle = document.getElementById("mode-toggle");
+    const modeIcon = modeToggle.querySelector("i");
+    const modeText = modeToggle.querySelector("span");
+
+    // Function to apply the theme
+    const applyTheme = (theme) => {
+        if (theme === 'dark') {
+            document.body.classList.add("dark-mode");
+            modeIcon.className = 'ti ti-sun';
+            modeText.textContent = 'Light Mode';
+        } else {
+            document.body.classList.remove("dark-mode");
+            modeIcon.className = 'ti ti-moon';
+            modeText.textContent = 'Dark Mode';
+        }
+    };
+
+    // Function to toggle the theme and save preference
+    const toggleTheme = () => {
+        const currentThemeIsDark = document.body.classList.contains("dark-mode");
+        const newTheme = currentThemeIsDark ? 'light' : 'dark';
+        localStorage.setItem("theme", newTheme);
+        applyTheme(newTheme);
+    };
+
+    // Add click event listener
+    if (modeToggle) {
+        modeToggle.addEventListener("click", toggleTheme);
+    }
+
+    // On initial load, check for saved theme
+    const savedTheme = localStorage.getItem("theme");
+    // Check for user's system preference if no theme is saved
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+    if (savedTheme) {
+        applyTheme(savedTheme);
+    } else if (prefersDark) {
+        applyTheme('dark');
+    } else {
+        applyTheme('light'); // Default to light
+    }
 });
