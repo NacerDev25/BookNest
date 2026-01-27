@@ -14,6 +14,18 @@
     --border-radius-lg: 16px;
 }
 
+body.dark-mode {
+    --primary-color: #82B1FF; /* Lighter Blue for links/headings */
+    --secondary-color: #1de9b6; /* Keep Vibrant Teal */
+    --accent-color: #FFD180; /* Lighter Amber */
+    --text-color: #ECEFF1; /* Light Bluish Grey for main text */
+    --bg-color: #121212; /* Very dark grey, almost black */
+    --surface-color: #1E1E1E; /* Dark grey for cards, headers, modals */
+
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
+}
+
 /* Base styles and accessibility improvements */
 *, *::before, *::after {
     box-sizing: border-box;
