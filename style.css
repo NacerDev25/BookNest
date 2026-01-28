@@ -565,6 +565,63 @@ body.menu-open #menu-backdrop {
     background-color: #dbe1e4;
 }
 
+/* Divider for social login */
+.divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 2rem 0;
+    color: var(--text-color);
+    font-weight: bold;
+}
+
+.divider::before,
+.divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #ccc;
+}
+
+.divider:not(:empty)::before {
+    margin-inline-end: .75em;
+}
+
+.divider:not(:empty)::after {
+    margin-inline-start: .75em;
+}
+
+/* Social login buttons container */
+.social-login {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5rem;
+}
+
+.btn-google {
+    background-color: #4285F4; /* Google Blue */
+    color: #FFFFFF;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--border-radius-md);
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s, box-shadow 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1rem;
+    box-shadow: var(--shadow-sm);
+}
+
+.btn-google:hover {
+    background-color: #357AE8; /* Darker Google Blue */
+    box-shadow: var(--shadow-md);
+}
+
+.btn-google svg {
+    vertical-align: middle;
+}
+
 /* --- Profile Container Styles --- */
 .profile-container {
     cursor: pointer;
