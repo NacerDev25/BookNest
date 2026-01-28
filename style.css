@@ -89,23 +89,12 @@ a:focus, button:focus, input:focus, [tabindex]:not([tabindex="-1"]):focus {
 #Logo-container {
     display: flex;
     align-items: center;
-    gap: 0.25rem; /* Reduced gap for a tighter look */
-}
-
-/* Style the 'B' to be more prominent and balanced */
-#Logo-container span {
-    display: inline-block; /* Ensure transform is applied correctly */
-    font-size: 2.5rem; /* Make it larger */
-    font-weight: bold;
-    color: var(--primary-color);
-    line-height: 1; /* Adjust line-height to help with vertical alignment */
-    transform: translateY(-5px); /* Fine-tune vertical alignment */
 }
 
 /* Control the SVG size via CSS for better scalability */
 #Logo-container svg {
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
 }
 
 #Main-heading {
