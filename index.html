@@ -8,6 +8,7 @@
     </title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="components/login-modal.css">
     <script src="js.js" defer></script>
 </head>
 <body>
@@ -177,45 +178,5 @@
 </footer>
 </div>
 
-<!-- Login Modal Structure -->
-<div id="login-modal-overlay" class="modal-overlay">
-    <div id="login-modal-box" class="modal-box" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-        <button id="modal-close-btn" class="modal-close-btn" aria-label="Close dialog">&times;</button>
-        <h2 id="modal-title" class="modal-title">Welcome Back to BookNest</h2>
-        
-        <form id="login-form" class="modal-form">
-            <div class="form-group">
-                <label for="email-input">Email</label>
-                <input type="email" id="email-input" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="password-input">Password</label>
-                <input type="password" id="password-input" required>
-            </div>
-            
-            <div class="form-buttons">
-                <button type="submit" class="btn btn-primary">Login</button>
-                <button type="button" class="btn btn-secondary">Create Account</button>
-            </div>
-        </form>
-
-        <div class="divider">
-            <span>Or</span>
-        </div>
-
-        <div class="social-login">
-            <button id="google-login-btn" class="btn btn-google">
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M19.605 10.278c0-.655-.056-1.282-.164-1.89H10V12.7h5.362c-.232 1.258-.937 2.323-1.954 3.038v2.476h3.197c1.87-1.728 2.94-4.288 2.999-7.936z" fill="#4285F4"/>
-                    <path d="M10 20c2.721 0 5.006-.904 6.674-2.45l-3.197-2.476c-.886.596-2.028.948-3.477.948-2.671 0-4.928-1.794-5.748-4.204H.921v2.553C2.65 18.067 6.026 20 10 20z" fill="#34A853"/>
-                    <path d="M4.252 11.968c-.2-.596-.316-1.229-.316-1.905s.116-1.309.316-1.905V5.505H.921c-.66 1.34-.997 2.85-.997 4.55s.337 3.21.997 4.55l3.331-2.553z" fill="#FBBC04"/>
-                    <path d="M10 3.896c1.479 0 2.793.507 3.832 1.488L16.59 2.51C14.88 1.054 12.595 0 10 0 6.026 0 2.65 1.933.921 5.505l3.331 2.553c.82-2.41 3.077-4.204 5.748-4.204z" fill="#EA4335"/>
-                </svg>
-                <span>Continue with Google</span>
-            </button>
-        </div>
-    </div>
-</div>
 </body>
 </html>
