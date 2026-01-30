@@ -138,7 +138,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!modalLoaded) {
             console.log('4. Modal not loaded yet. Fetching...'); // Log 4
             try {
-                const response = await fetch('components/login-modal.html');
+                const response = await fetch('login-modal.html');
                 console.log('5. Fetch response:', response); // Log 5
                 if (!response.ok) {
                     console.error('Fetch failed! Status:', response.status);
