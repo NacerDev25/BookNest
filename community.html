@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مجتمع BookNest</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="community.css">
+</head>
+<body>
+    <div class="page-container">
+    <header class="site-header">
+        <h1 id="Main-heading">
+            مجتمع BookNest
+        </h1>
+        <div id="Search-container">
+            <label for="search">
+                بحث
+            </label>
+            <input type="search" id="search">
+        </div>
+        <button id="mode-toggle">
+            <i class="ti ti-moon" aria-hidden="true"></i>
+            <span class="nav-link-text">الوضع الداكن</span>
+        </button>
+        <button id="community-btn" aria-label="Community">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                <circle cx="10" cy="8" r="3" fill="currentColor"></circle>
+                <path d="M5 18C5 15.2386 7.23858 13 10 13C12.7614 13 15 15.2386 15 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+                <circle cx="15" cy="8" r="3" fill="currentColor"></circle>
+                <path d="M10 18C10 15.2386 12.2386 13 15 13C17.7614 13 20 15.2386 20 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+            </svg>
+        </button>
+        <a href="index.html" aria-label="العودة إلى الصفحة الرئيسية">
+            <div id="Logo-container">
+                <svg aria-label="شعار BookNest" role="img" version="1.1" width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <title>BookNest Logo</title>
+                    <path d="M 10,80 Q 50,20 90,80 C 80,95 20,95 10,80 Z" fill="var(--primary-color)"></path>
+                    <text x="50" y="68" font-family="system-ui, -apple-system, sans-serif" font-size="40" font-weight="bold" fill="var(--surface-color)" text-anchor="middle">B</text>
+                </svg>
+            </div>
+        </a>
+        <button id="profile-btn"> <!-- This will replace login-btn for logged in users -->
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle>
+            </svg>
+            <span>حسابي</span>
+        </button>
+    </header>    
+    <main class="site-main community-main">
+        <div class="feed-and-sidebar-container">
+            <div class="feed-container" role="feed">
+                <!-- Post Card Example -->
+                <article class="post-card" aria-labelledby="post-author-1">
+                    <div class="post-header">
+                        <img src="https://via.placeholder.com/40" alt="" class="author-avatar">
+                        <div>
+                            <h3 class="author-name" id="post-author-1">اسم العضو</h3>
+                            <p class="post-timestamp">منذ 5 دقائق</p>
+                        </div>
+                    </div>
+                    <div class="post-content">
+                        <p>هذا مثال على شكل المنشور. يمكن أن يكون مراجعة لكتاب، سؤال، أو مجرد فكرة لمشاركتها مع المجتمع. النص هنا لملء الفراغ ورؤية التصميم.</p>
+                    </div>
+                    <div class="post-actions">
+                        <button class="like-btn" aria-label="إعجاب بالمنشور">
+                            <i class="ti ti-heart" aria-hidden="true"></i> 
+                            <span>12</span>
+                        </button>
+                        <button class="comment-btn" aria-label="تعليق على المنشور">
+                            <i class="ti ti-message-circle" aria-hidden="true"></i> 
+                            <span>3</span>
+                        </button>
+                    </div>
+                </article>
+                <!-- More posts would be loaded here -->
+            </div>
+
+            <aside class="sidebar-container" aria-labelledby="sidebar-heading">
+                <div class="sidebar-widget">
+                    <h3 id="sidebar-heading">أشهر المنشورات</h3>
+                    <ul>
+                        <li><a href="#">مراجعة كتاب "اسم الكتاب"</a></li>
+                        <li><a href="#">نقاش حول روايات الخيال العلمي</a></li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+    </main>
+    <footer class="site-footer">
+        <div>
+            <p class="heading-all">
+                Developed by NacerDev25
+            </p>
+        </div>
+    </footer>
+</div>
+</body>
+</html>
