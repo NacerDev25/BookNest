@@ -185,7 +185,15 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error("Could not find the profile button (.profile-container). The modal will not open.");
     }
 
-    // --- 5. Dark/Light Mode Toggle ---
+    // --- 6. Community Button Navigation ---
+    const communityBtn = document.getElementById('community-btn');
+    if (communityBtn) {
+        communityBtn.addEventListener('click', () => {
+            window.location.href = 'community.html';
+        });
+    }
+
+    // --- 7. Dark/Light Mode Toggle ---
     const modeToggle = document.getElementById("mode-toggle");
     const modeIcon = modeToggle.querySelector("i");
     const modeText = modeToggle.querySelector("span");
@@ -228,4 +236,20 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
         applyTheme('light'); // Default to light
     }
+// --- 8. Focus Management on Page Load ---
+    const handleReturnFocus = () => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const focusTargetId = urlParams.get('returnFocus');
+
+        if (focusTargetId) {
+            const focusTarget = document.getElementById(focusTargetId);
+            if (focusTarget) {
+                focusTarget.focus();
+            }
+            // Clean the URL to remove the parameter
+            history.replaceState(null, '', window.location.pathname);
+        }
+    };
+
+    handleReturnFocus();
 });
