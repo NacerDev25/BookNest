@@ -1,0 +1,145 @@
+/* Community Page Specific Styles */
+
+.community-main .feed-and-sidebar-container {
+    display: flex;
+    gap: 2rem;
+    padding: 1rem;
+    align-items: flex-start; /* Align items to the top */
+}
+
+.community-main .feed-container {
+    flex: 3; /* Takes up more space on larger screens */
+    max-width: 700px; /* Max width for readability */
+    margin: 0 auto; /* Center the feed container */
+}
+
+.community-main .sidebar-container {
+    flex: 1; /* Takes up less space on larger screens */
+    background-color: var(--surface-color);
+    padding: 1.5rem;
+    border-radius: var(--border-radius-lg);
+    height: fit-content; /* Make the sidebar only as tall as its content */
+    box-shadow: var(--shadow-sm);
+    display: none; /* Initially hidden on small screens */
+}
+
+/* Responsive adjustments for community page */
+@media (max-width: 991px) { /* When sidebar is hidden */
+    .community-main .feed-and-sidebar-container {
+        flex-direction: column; /* Stack feed and sidebar vertically if sidebar was visible */
+        gap: 1.5rem;
+    }
+    .community-main .feed-container {
+        flex: auto; /* Allow feed to take available width */
+        max-width: 100%; /* Full width on small screens */
+        padding: 0 1rem; /* Add horizontal padding */
+    }
+    .community-main .sidebar-container {
+        display: none; /* Explicitly ensure sidebar is hidden on smaller screens */
+    }
+}
+
+/* Show sidebar on larger screens */
+@media (min-width: 992px) {
+    .community-main .sidebar-container {
+        display: block;
+    }
+}
+
+/* Post Card Styles */
+.post-card {
+    background-color: var(--surface-color);
+    border-radius: var(--border-radius-lg);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color);
+}
+
+.post-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.author-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.author-name {
+    margin: 0;
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+.post-timestamp {
+    margin: 0;
+    font-size: 0.85rem;
+    color: var(--text-color-secondary);
+}
+
+.post-content {
+    margin-bottom: 1rem;
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.post-actions {
+    display: flex;
+    gap: 1.5rem;
+    border-top: 1px solid var(--border-color);
+    padding-top: 1rem;
+}
+
+.post-actions button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-color-secondary);
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.post-actions button:hover {
+    color: var(--primary-color);
+}
+
+.post-actions .ti {
+    font-size: 1.2rem;
+}
+
+/* Sidebar Widget */
+.sidebar-widget {
+    margin-bottom: 2rem;
+}
+.sidebar-widget h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 0.5rem;
+}
+.sidebar-widget ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.sidebar-widget li a {
+    text-decoration: none;
+    color: var(--text-color);
+    display: block;
+    padding: 0.5rem 0;
+    border-radius: var(--border-radius-md);
+    transition: background-color 0.2s, color 0.2s;
+}
+.sidebar-widget li a:hover {
+    color: var(--primary-color);
+    background-color: var(--bg-color-hover);
+}
