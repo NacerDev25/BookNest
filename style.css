@@ -439,24 +439,30 @@ body.menu-open #menu-backdrop {
 }
 
 
-/* --- Profile Container Styles --- */
-.profile-container {
+/* --- Login Button Styles --- */
+#login-btn {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 12px;
     cursor: pointer;
+    transition: all 0.2s ease-in-out;
     display: flex;
     align-items: center;
-    justify-content: center;
-    transition: transform 0.2s;
-    outline: none;
+    gap: 0.6rem;
 }
 
-.profile-container:hover {
-    transform: scale(1.1); /* تكبير بسيط عند تمرير الماوس */
+#login-btn:hover, #login-btn:focus {
+    background-color: var(--primary-color);
+    color: var(--surface-color);
 }
 
-/* لضمان ظهور إطار عند التنقل بواسطة الكيبورد (Accessibility) */
-.profile-container:focus {
-    border: 2px solid #0047AB;
-    border-radius: 50%;
+/* Style for the SVG inside the login button */
+#login-btn svg {
+    transition: stroke 0.2s ease-in-out;
 }
 
 /* --- Community Button Styles --- */
