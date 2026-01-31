@@ -101,91 +101,83 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- 4. Login Modal Functionality ---
     const profileBtn = document.querySelector('.profile-container');
-    console.log('1. Finding profile button:', profileBtn); // Log 1
 
     let loginModalOverlay = null; // Will be assigned after fetching
     let closeModalBtn = null;
     let emailInput = null;
     let modalLoaded = false; // Flag to ensure modal HTML is only fetched once
+    let lastFocusedElement = null; // Variable to store what to focus on close
 
-    // Function to attach event listeners to the modal elements
-    const attachModalEventListeners = () => {
-        if (loginModalOverlay && closeModalBtn && emailInput) {
-            // Event listener to close the modal with the button
-            closeModalBtn.addEventListener('click', closeModal);
+    // Define handlers so they can be added and removed
+    const handleOverlayClick = (e) => {
+        if (e.target === loginModalOverlay) {
+            closeModal();
+        }
+    };
 
-            // Event listener to close the modal by clicking the overlay
-            loginModalOverlay.addEventListener('click', (e) => {
-                if (e.target === loginModalOverlay) {
-                    closeModal();
-                }
-            });
-
-            // Event listener to close the modal with the Escape key
-            document.addEventListener('keydown', (e) => {
-                // Ensure the modal is visible before trying to close with Escape
-                if (e.key === 'Escape' && loginModalOverlay.classList.contains('visible')) {
-                    closeModal();
-                }
-            });
+    const handleEscapeKey = (e) => {
+        if (e.key === 'Escape') {
+            closeModal();
         }
     };
 
     // Function to open the modal
     const openModal = async () => {
-        console.log('3. openModal function called.'); // Log 3
+        lastFocusedElement = document.activeElement; // Store the currently focused element
 
         if (!modalLoaded) {
-            console.log('4. Modal not loaded yet. Fetching...'); // Log 4
             try {
                 const response = await fetch('login-modal.html');
-                console.log('5. Fetch response:', response); // Log 5
                 if (!response.ok) {
-                    console.error('Fetch failed! Status:', response.status);
+                    console.error('Failed to fetch login modal.');
                     return;
                 }
                 const modalHtml = await response.text();
                 document.body.insertAdjacentHTML('beforeend', modalHtml);
-                console.log('6. Modal HTML injected into the body.'); // Log 6
 
                 loginModalOverlay = document.getElementById('login-modal-overlay');
                 closeModalBtn = document.getElementById('modal-close-btn');
                 emailInput = document.getElementById('email-input');
-                console.log('7. Finding modal elements:', { loginModalOverlay, closeModalBtn, emailInput }); // Log 7
-
-                attachModalEventListeners();
+                
                 modalLoaded = true;
             } catch (error) {
-                console.error('8. ERROR during fetch or setup:', error); // Log 8
+                console.error('Error fetching or setting up login modal:', error);
                 return;
             }
         }
 
         if (loginModalOverlay) {
             loginModalOverlay.classList.add('visible');
-            console.log('9. Modal is now visible.'); // Log 9
+            
+            // Attach event listeners every time the modal opens
+            closeModalBtn?.addEventListener('click', closeModal);
+            loginModalOverlay?.addEventListener('click', handleOverlayClick);
+            document.addEventListener('keydown', handleEscapeKey);
+
             setTimeout(() => emailInput?.focus(), 100);
         }
     };
 
     // Function to close the modal
     const closeModal = () => {
-        if (loginModalOverlay) {
+        if (loginModalOverlay && loginModalOverlay.classList.contains('visible')) {
             loginModalOverlay.classList.remove('visible');
-            // Return focus to the profile button that opened the modal.
-            setTimeout(() => profileBtn?.focus(), 0);
+
+            // Remove event listeners every time the modal closes
+            closeModalBtn?.removeEventListener('click', closeModal);
+            loginModalOverlay?.removeEventListener('click', handleOverlayClick);
+            document.removeEventListener('keydown', handleEscapeKey);
+            
+            // Return focus to the element that opened the modal.
+            lastFocusedElement?.focus();
         }
     };
 
     if (profileBtn) {
-        profileBtn.addEventListener('click', () => {
-            console.log('2. Profile button CLICKED!'); // Log 2
-            openModal();
-        });
+        profileBtn.addEventListener('click', openModal);
         profileBtn.addEventListener('keydown', (e) => {
             if (e.key === 'Enter' || e.key === ' ') {
                 e.preventDefault();
-                console.log('2. Profile button ACTIVATED with key!'); // Log 2
                 openModal();
             }
         });
