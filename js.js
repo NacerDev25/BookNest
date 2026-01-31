@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
     toggleMenu(false);
 
     // --- 4. Login Modal Functionality ---
-    const profileBtn = document.querySelector('.profile-container');
+    const profileBtn = document.querySelector('#login-btn');
 
     let loginModalOverlay = null; // Will be assigned after fetching
     let closeModalBtn = null;
