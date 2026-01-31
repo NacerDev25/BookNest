@@ -236,7 +236,8 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
         applyTheme('light'); // Default to light
     }
-// --- 8. Focus Management on Page Load ---
+
+    // --- 8. Focus Management on Page Load ---
     const handleReturnFocus = () => {
         const urlParams = new URLSearchParams(window.location.search);
         const focusTargetId = urlParams.get('returnFocus');
