@@ -246,6 +246,16 @@ document.addEventListener('DOMContentLoaded', () => {
             const focusTarget = document.getElementById(focusTargetId);
             if (focusTarget) {
                 focusTarget.focus();
+
+                // Announce successful navigation to screen reader users
+                const announcer = document.getElementById('aria-live-announcer');
+                if (announcer) {
+                    announcer.textContent = 'Main menu';
+                    // Clear the announcer after a delay so it's not read again
+                    setTimeout(() => {
+                        announcer.textContent = '';
+                    }, 5000);
+                }
             }
             // Clean the URL to remove the parameter
             history.replaceState(null, '', window.location.pathname);
