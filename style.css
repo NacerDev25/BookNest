@@ -58,6 +58,19 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:not([tabi
     border-radius: 4px; /* Optional: adds a slight curve to the outline */
 }
 
+/* Reusable class to hide elements visually but keep them accessible to screen readers */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
 /* Hide the visually hidden label for search but keep for screen readers */
 #Search-container label {
     position: absolute;
