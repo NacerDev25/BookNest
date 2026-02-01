@@ -15,16 +15,16 @@
         <h1 id="Main-heading">
             مجتمع BookNest
         </h1>
-        <a href="index.html" class="back-to-home-btn" aria-label="العودة إلى الواجهة الرئيسية">
+        <button id="back-to-home-btn" class="back-to-home-btn">
+            <span>Back</span>
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M19 12H5"></path>
                 <path d="M12 19l-7-7 7-7"></path>
             </svg>
-            <span>العودة</span>
-        </a>
+        </button>
         <a href="index.html?returnFocus=community-btn" aria-label="BookNest Logo, Return to Home Page">
             <div id="Logo-container">
-                <svg aria-label="شعار BookNest" role="img" version="1.1" width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <svg aria-label="BookNest Logo, Return to Home Page" role="img" version="1.1" width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                     <title>BookNest Logo</title>
                     <path d="M 10,80 Q 50,20 90,80 C 80,95 20,95 10,80 Z" fill="var(--primary-color)"></path>
                     <text x="50" y="68" font-family="system-ui, -apple-system, sans-serif" font-size="40" font-weight="bold" fill="var(--surface-color)" text-anchor="middle">B</text>
@@ -86,5 +86,6 @@
         </div>
     </footer>
 </div>
+    <div id="aria-live-announcer" aria-live="assertive" class="visually-hidden"></div>
 </body>
 </html>
