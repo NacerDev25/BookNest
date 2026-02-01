@@ -1,0 +1,120 @@
+# اقتراحات لتصميم وبناء صفحة "المجتمع"
+
+مرحباً، بناءً على تحليلنا للملفات الحالية والهدف العام للمشروع، هذه هي اقتراحاتي لتصميم وبناء صفحة المجتمع بطريقة منظمة وقابلة للتطوير.
+
+---
+
+### 1. هيكل الملفات (File Structure)
+
+للحفاظ على تنظيم المشروع، أقترح إنشاء ملفات منفصلة لصفحة المجتمع:
+
+- **`community.html`**: ملف HTML مخصص لهيكل صفحة المجتمع فقط.
+- **`community.css`**: ملف CSS لتصميم وتنسيق صفحة المجتمع، لضمان عدم تداخل الأنماط مع باقي الموقع.
+
+---
+
+### 2. تصميم هيكل صفحة `community.html`
+
+يجب أن يحتوي الملف على الأقسام الرئيسية التالية، تمامًا كما جاء في ملف "تحسينات للموقع.txt":
+
+```html
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مجتمع BookNest</title>
+    <!-- ربط ملفات CSS الرئيسية وملف المجتمع الجديد -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="community.css">
+</head>
+<body>
+
+    <!-- يمكننا لاحقًا استيراد الهيدر بشكل ديناميكي -->
+    <header class="site-header">
+        <!-- نفس الهيدر الموجود في index.html مع إظهار أيقونة المجتمع وصورة المستخدم -->
+    </header>
+
+    <main class="community-page-container">
+
+        <!-- القسم الأول: إنشاء منشور جديد -->
+        <section class="create-post-container" aria-labelledby="create-post-heading">
+            <h2 id="create-post-heading" class="visually-hidden">إنشاء منشور جديد</h2>
+            <div class="user-avatar-container">
+                <img src="path-to-user-avatar.jpg" alt="صورتك الشخصية" class="user-avatar">
+            </div>
+            <textarea placeholder="بماذا تفكر يا [اسم المستخدم]؟"></textarea>
+            <button class="btn btn-primary">نشر</button>
+        </section>
+
+        <!-- القسم الثاني: ساحة المنشورات (The Feed) -->
+        <div class="feed-and-sidebar-container">
+
+            <div class="feed-container" role="feed">
+                <!-- مثال على بطاقة منشور (Post Card) -->
+                <article class="post-card" aria-labelledby="post-title-1">
+                    <div class="post-header">
+                        <img src="path-to-author-avatar.jpg" alt="صورة المؤلف" class="author-avatar">
+                        <div>
+                            <h3 class="author-name">اسم العضو</h3>
+                            <p class="post-timestamp">منذ 5 دقائق</p>
+                        </div>
+                    </div>
+                    <div class="post-content">
+                        <p>هذا هو نص المنشور. يمكن أن يكون مراجعة لكتاب، سؤال، أو مجرد فكرة لمشاركتها مع المجتمع.</p>
+                    </div>
+                    <div class="post-actions">
+                        <button class="like-btn">
+                            <i class="ti ti-heart"></i> 
+                            <span>12 إعجاب</span>
+                        </button>
+                        <button class="comment-btn">
+                            <i class="ti ti-message-circle"></i> 
+                            <span>3 تعليقات</span>
+                        </button>
+                    </div>
+                </article>
+                <!-- يمكن إضافة المزيد من بطاقات المنشورات هنا -->
+            </div>
+
+            <!-- القسم الثالث: الشريط الجانبي (Sidebar) -->
+            <aside class="sidebar-container" aria-labelledby="sidebar-heading">
+                <div class="sidebar-widget">
+                    <h3 id="sidebar-heading">أشهر المنشورات</h3>
+                    <ul>
+                        <li><a href="#">مراجعة كتاب "اسم الكتاب"</a></li>
+                        <li><a href="#">نقاش حول روايات الخيال العلمي</a></li>
+                    </ul>
+                </div>
+                <div class="sidebar-widget">
+                    <h3>أعضاء جدد</h3>
+                    <!-- عرض صور وأسماء أعضاء جدد -->
+                </div>
+            </aside>
+
+        </div>
+
+    </main>
+
+</body>
+</html>
+```
+
+---
+
+### 3. تصميم الأنماط `community.css`
+
+- استخدام **Flexbox** أو **CSS Grid** لتنظيم الأقسام الرئيسية (ساحة المنشورات بجانب الشريط الجانبي).
+- تصميم "بطاقة المنشور" (Post Card) بتنسيق واضح وجذاب، مع ترك مسافات كافية بين العناصر.
+- التأكد من أن التصميم متجاوب (Responsive) ويعمل بشكل جيد على الشاشات الصغيرة والكبيرة.
+
+---
+
+### 4. الخطوات القادمة (بعد موافقتك)
+
+1.  **إنشاء الملفين:** `community.html` و `community.css`.
+2.  **تعبئة `community.html`** بالهيكل الأساسي المقترح أعلاه (يمكننا استخدام نصوص وصور مؤقتة).
+3.  **الربط المبدئي:** تعديل زر "Community" في `index.html` ليقوم بالانتقال إلى صفحة `community.html`.
+4.  **إخفاء الزر مبدئيًا:** إضافة خاصية CSS لإخفاء زر المجتمع، استعدادًا للخطوة التالية وهي التحكم فيه عبر JavaScript بعد تسجيل الدخول.
+
+هذه هي الخطوط العريضة المقترحة. أنتظر مراجعتك وملاحظاتك.
