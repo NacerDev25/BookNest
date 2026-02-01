@@ -143,3 +143,25 @@
     color: var(--primary-color);
     background-color: var(--bg-color-hover);
 }
+
+/* Styles for the back-to-home button */
+.site-header .back-to-home-btn {
+    position: absolute; /* لتحديد موضعه بالنسبة للهيدر */
+    top: 1rem;          /* لإبعاده بمقدار 1rem من الأعلى */
+    left: 1rem;         /* لإبعاده بمقدار 1rem من اليسار */
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none; /* Remove underline from link */
+    color: var(--text-color); /* Use general text color */
+    padding: 0.5rem 1rem; /* Some padding to make it clickable */
+    border-radius: var(--border-radius-md); /* Match other elements */
+    transition: background-color 0.2s, color 0.2s; /* Smooth transitions */
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.site-header .back-to-home-btn:hover {
+    background-color: var(--bg-color-hover);
+    color: var(--primary-color);
+}
