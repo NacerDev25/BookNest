@@ -245,17 +245,24 @@ document.addEventListener('DOMContentLoaded', () => {
         if (focusTargetId) {
             const focusTarget = document.getElementById(focusTargetId);
             if (focusTarget) {
-                focusTarget.focus();
+                // Use a more robust focus method for mobile reliability
+                setTimeout(() => {
+                    // Blur any active element first to prevent focus conflicts
+                    if (document.activeElement) {
+                        document.activeElement.blur();
+                    }
+                    focusTarget.focus();
 
-                // Announce successful navigation to screen reader users
-                const announcer = document.getElementById('aria-live-announcer');
-                if (announcer) {
-                    announcer.textContent = 'تم الرجوع إلى الصفحة الرئيسية';
-                    // Clear the announcer after a delay so it's not read again
-                    setTimeout(() => {
-                        announcer.textContent = '';
-                    }, 5000);
-                }
+                    // Announce successful navigation to screen reader users
+                    const announcer = document.getElementById('aria-live-announcer');
+                    if (announcer) {
+                        announcer.textContent = 'تم الرجوع إلى الصفحة الرئيسية';
+                        // Clear the announcer after a delay so it's not read again
+                        setTimeout(() => {
+                            announcer.textContent = '';
+                        }, 5000);
+                    }
+                }, 150); // Increased delay for mobile browsers
             }
             // Clean the URL to remove the parameter
             history.replaceState(null, '', window.location.pathname);
