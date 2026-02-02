@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مجتمع BookNest</title>
+    <title>BookNest Community</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="community.css">
@@ -12,8 +12,8 @@
 <body>
     <div class="page-container">
     <header class="site-header">
-        <h1 id="Main-heading">
-            مجتمع BookNest
+        <h1 id="community-heading">
+            BookNest Community
         </h1>
         <button id="back-to-home-btn" class="back-to-home-btn">
             <span>Back</span>
@@ -22,20 +22,18 @@
                 <path d="M12 19l-7-7 7-7"></path>
             </svg>
         </button>
-        <a href="index.html?returnFocus=community-btn">
-            <div id="Logo-container">
-                <svg role="img" version="1.1" width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <title>BookNest Logo</title>
-                    <path d="M 10,80 Q 50,20 90,80 C 80,95 20,95 10,80 Z" fill="var(--primary-color)"></path>
-                    <text x="50" y="68" font-family="system-ui, -apple-system, sans-serif" font-size="40" font-weight="bold" fill="var(--surface-color)" text-anchor="middle">B</text>
-                </svg>
-            </div>
-        </a>
+        <div id="Logo-container">
+            <svg role="img" version="1.1" width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <title>BookNest Logo</title>
+                <path d="M 10,80 Q 50,20 90,80 C 80,95 20,95 10,80 Z" fill="var(--primary-color)"></path>
+                <text x="50" y="68" font-family="system-ui, -apple-system, sans-serif" font-size="40" font-weight="bold" fill="var(--surface-color)" text-anchor="middle">B</text>
+            </svg>
+        </div>
         <button id="profile-btn"> <!-- This will replace login-btn for logged in users -->
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
                 <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle>
             </svg>
-            <span>حسابي</span>
+            <span>My Account</span>
         </button>
     </header>    
     <main class="site-main community-main">
@@ -46,19 +44,19 @@
                     <div class="post-header">
                         <img src="https://via.placeholder.com/40" alt="" class="author-avatar">
                         <div>
-                            <h3 class="author-name" id="post-author-1">اسم العضو</h3>
-                            <p class="post-timestamp">منذ 5 دقائق</p>
+                            <h3 class="author-name" id="post-author-1">Member Name</h3>
+                            <p class="post-timestamp">5 minutes ago</p>
                         </div>
                     </div>
                     <div class="post-content">
-                        <p>هذا مثال على شكل المنشور. يمكن أن يكون مراجعة لكتاب، سؤال، أو مجرد فكرة لمشاركتها مع المجتمع. النص هنا لملء الفراغ ورؤية التصميم.</p>
+                        <p>This is an example of what a post looks like. It could be a book review, a question, or just a thought to share with the community. This text is here to fill the space and visualize the design.</p>
                     </div>
                     <div class="post-actions">
-                        <button class="like-btn" aria-label="إعجاب بالمنشور">
+                        <button class="like-btn" aria-label="Like post">
                             <i class="ti ti-heart" aria-hidden="true"></i> 
                             <span>12</span>
                         </button>
-                        <button class="comment-btn" aria-label="تعليق على المنشور">
+                        <button class="comment-btn" aria-label="Comment on post">
                             <i class="ti ti-message-circle" aria-hidden="true"></i> 
                             <span>3</span>
                         </button>
@@ -69,10 +67,10 @@
 
             <aside class="sidebar-container" aria-labelledby="sidebar-heading">
                 <div class="sidebar-widget">
-                    <h3 id="sidebar-heading">أشهر المنشورات</h3>
+                    <h3 id="sidebar-heading">Popular Posts</h3>
                     <ul>
-                        <li><a href="#">مراجعة كتاب "اسم الكتاب"</a></li>
-                        <li><a href="#">نقاش حول روايات الخيال العلمي</a></li>
+                        <li><a href="#">Review of "Book Title"</a></li>
+                        <li><a href="#">Discussion about sci-fi novels</a></li>
                     </ul>
                 </div>
             </aside>

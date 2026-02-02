@@ -272,7 +272,7 @@ document.addEventListener('DOMContentLoaded', () => {
     handleReturnFocus();
 });
 document.addEventListener('DOMContentLoaded', () => {
-    const mainHeading = document.getElementById('Main-heading');
+    const mainHeading = document.getElementById('community-heading');
 
     if (mainHeading) {
         // Set tabindex to -1 to make the heading programmatically focusable
