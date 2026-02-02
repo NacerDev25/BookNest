@@ -3,182 +3,159 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>
-        BookNest
-    </title>
+    <title>BookNest</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="login-modal.css">
+
     <script src="js.js" defer></script>
 </head>
 <body>
-<button id="menu-toggle" aria-label="Main menu" aria-expanded="false" aria-controls="side-menu">
-    <svg
-        width="32"
-        height="32"
-        viewBox="0 0 24 24"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        aria-hidden="true"
-        focusable="false"
-    >
-        <line x1="3" y1="6" x2="21" y2="6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-        <line x1="3" y1="12" x2="21" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-        <line x1="3" y1="18" x2="21" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-    </svg>
-</button>
-<nav id="side-menu" aria-label="Side Navigation" aria-hidden="true">
-    
-</nav>
-<div id="menu-backdrop"></div>
-<div class="page-container">
-<header class="site-header">
-<h1 id="Main-heading">
-    Welcome to BookNest
-</h1>
-    <div id="Search-container">
-        <label for="search">
-            Search
-        </label>
-<input type="search" id="search">
-</div>
-    <button id="mode-toggle">
-        <i class="ti ti-moon" aria-hidden="true"></i>
-        <span class="nav-link-text">Dark Mode</span>
-    </button>
-    <!-- New Community Button -->
-    <button id="community-btn" aria-label="Community">
+
+<!-- Main Page Content -->
+<div id="main-page" class="page-section">
+    <button id="menu-toggle" aria-label="Main menu" aria-expanded="false" aria-controls="side-menu">
         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-            <!-- Background person -->
-            <circle cx="10" cy="8" r="3" fill="currentColor"></circle>
-            <path d="M5 18C5 15.2386 7.23858 13 10 13C12.7614 13 15 15.2386 15 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
-            <!-- Foreground person (slightly offset) -->
-            <circle cx="15" cy="8" r="3" fill="currentColor"></circle>
-            <path d="M10 18C10 15.2386 12.2386 13 15 13C17.7614 13 20 15.2386 20 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+            <line x1="3" y1="6" x2="21" y2="6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <line x1="3" y1="12" x2="21" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <line x1="3" y1="18" x2="21" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
         </svg>
     </button>
-    <a href="index.html">
-    <div id="Logo-container">
-        <!-- الشعار الجديد لـ BookNest -->
-        <svg role="img" version="1.1" width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <title>BookNest Logo</title>
-            <!-- The combined nest/open book shape -->
-            <path d="M 10,80 Q 50,20 90,80 C 80,95 20,95 10,80 Z" fill="var(--primary-color)"/>
-            <!-- A stylized 'B' inside, suggesting knowledge being nurtured -->
-            <text x="50" y="68" font-family="system-ui, -apple-system, sans-serif" font-size="40" font-weight="bold" fill="var(--surface-color)" text-anchor="middle">B</text>
-        </svg>
-    </div>
-</a>
-<nav class="bottom-nav" aria-label="Bottom Navigation">
-<ul class="nav-list">
-<li>
-        <a href="#s1" class="nav-link" role="button">
-                <i class="ti ti-bulb" aria-hidden="true"></i>
-                <span class="nav-link-text">Personal Growth & Ideas</span>  
-        </a>
-        </li>
-        <li>
-        <a href="#s2" class="nav-link" role="button">
-                <i class="ti ti-building-arch" aria-hidden="true"></i>
-                <span class="nav-link-text">Faith & History</span> 
-        </a>
-        </li>
-        <li>
-        <a href="#s3" class="nav-link" role="button">
-                <i class="ti ti-book-2" aria-hidden="true"></i>
-                <span class="nav-link-text">Literature & Fiction</span> 
-        </a>
-        </li>
-    <li>
-        <a href="#s4" class="nav-link" role="button">
-                <i class="ti ti-atom-2" aria-hidden="true"></i>
-                <span class="nav-link-text">Science & Tech</span> 
-        </a>
-        </li>
-        <li>
-        <a href="#s5" class="nav-link" role="button">
-                <i class="ti ti-briefcase" aria-hidden="true"></i>
-                <span class="nav-link-text">Finance & Business</span> 
-        </a>
-        </li>
-        <li>
-        <a href="#s6" class="nav-link" role="button">
-                <i class="ti ti-heart-rate-monitor" aria-hidden="true"></i>
-                <span class="nav-link-text">Health & Lifestyle</span>   
-        </a>
-        </li>
-        <li>
-            <a href="#s7" class="nav-link" role="button">
-                <i class="ti ti-gift" aria-hidden="true"></i>
-                <span class="nav-link-text">Ad-Supported Books</span>         
+    <nav id="side-menu" aria-label="Side Navigation" aria-hidden="true"></nav>
+    <div id="menu-backdrop"></div>
+    <div class="page-container">
+        <header class="site-header">
+            <h1 id="Main-heading">Welcome to BookNest</h1>
+            <div id="Search-container">
+                <label for="search">Search</label>
+                <input type="search" id="search">
+            </div>
+            <button id="mode-toggle">
+                <i class="ti ti-moon" aria-hidden="true"></i>
+                <span class="nav-link-text">Dark Mode</span>
+            </button>
+            <button id="community-btn" aria-label="Community">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                    <circle cx="10" cy="8" r="3" fill="currentColor"></circle>
+                    <path d="M5 18C5 15.2386 7.23858 13 10 13C12.7614 13 15 15.2386 15 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+                    <circle cx="15" cy="8" r="3" fill="currentColor"></circle>
+                    <path d="M10 18C10 15.2386 12.2386 13 15 13C17.7614 13 20 15.2386 20 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+                </svg>
+            </button>
+            <a href="index.html">
+                <div id="Logo-container">
+                    <svg role="img" version="1.1" width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <title>BookNest Logo</title>
+                        <path d="M 10,80 Q 50,20 90,80 C 80,95 20,95 10,80 Z" fill="var(--primary-color)"/>
+                        <text x="50" y="68" font-family="system-ui, -apple-system, sans-serif" font-size="40" font-weight="bold" fill="var(--surface-color)" text-anchor="middle">B</text>
+                    </svg>
+                </div>
             </a>
-        </li>
-</ul>
-</nav>
-<button id="login-btn">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-            <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
-            <polyline points="10 17 15 12 10 7"></polyline>
-            <line x1="15" y1="12" x2="3" y2="12"></line>
-        </svg>
-        <span>Login</span>
-    </button></header>    
-<main class="site-main">
-<section class="content-section">
-    <h2 id="s1" class="section-heading">
-                Personal Growth & Ideas  
-    </h2>
-</section>
-<section class="content-section">
-    <h2 id="s2" class="section-heading">
-               Faith & History 
-    </h2>
-</section>
-<section class="content-section">
-    <h2 id="s3" class="section-heading">
-                Literature & Fiction 
-    </h2>
-</section>
-<section class="content-section">
-    <h2 id="s4" class="section-heading">
-                Science & Tech 
-    </h2>
-</section>
-<section class="content-section">
-    <h2 id="s5" class="section-heading">
-                Finance & Business 
-    </h2>
-</section>
-<section class="content-section">
-    <h2 id="s6" class="section-heading">
-                Health & Lifestyle   
-    </h2>
-</section>
-<section class="content-section">
-    <h2 id="s7" class="section-heading">
-       Ad-Supported Books 
-    </h2>
-    <div class="book-card">
-        <span class="book-card__title">
-            Alice's Adventures in Wonderland
-        </span>
-        <a href="https://www.gutenberg.org/ebooks/11.html.images" class="book-card__image-link">
-            <img class="book-card__image" src="https://upload.wikimedia.org/wikipedia/commons/1/12/Alice%27s_Adventures_in_Wonderland_-_Carroll%2C_Robinson_-_S001_-_Cover.jpg" alt="Book cover for Alice's Adventures in Wonderland">
-            </a>
-        <p class="book-card__summary">
-            The story follows a little girl named Alice who tumbles down a rabbit hole into a fantastical world. There, she encounters a variety of eccentric characters in a series of whimsical and often perplexing adventures.
-        </p>
+            <nav class="bottom-nav" aria-label="Bottom Navigation">
+                <ul class="nav-list">
+                    <li><a href="#s1" class="nav-link" role="button"><i class="ti ti-bulb" aria-hidden="true"></i><span class="nav-link-text">Personal Growth & Ideas</span></a></li>
+                    <li><a href="#s2" class="nav-link" role="button"><i class="ti ti-building-arch" aria-hidden="true"></i><span class="nav-link-text">Faith & History</span></a></li>
+                    <li><a href="#s3" class="nav-link" role="button"><i class="ti ti-book-2" aria-hidden="true"></i><span class="nav-link-text">Literature & Fiction</span></a></li>
+                    <li><a href="#s4" class="nav-link" role="button"><i class="ti ti-atom-2" aria-hidden="true"></i><span class="nav-link-text">Science & Tech</span></a></li>
+                    <li><a href="#s5" class="nav-link" role="button"><i class="ti ti-briefcase" aria-hidden="true"></i><span class="nav-link-text">Finance & Business</span></a></li>
+                    <li><a href="#s6" class="nav-link" role="button"><i class="ti ti-heart-rate-monitor" aria-hidden="true"></i><span class="nav-link-text">Health & Lifestyle</span></a></li>
+                    <li><a href="#s7" class="nav-link" role="button"><i class="ti ti-gift" aria-hidden="true"></i><span class="nav-link-text">Ad-Supported Books</span></a></li>
+                </ul>
+            </nav>
+            <button id="login-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                    <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
+                    <polyline points="10 17 15 12 10 7"></polyline>
+                    <line x1="15" y1="12" x2="3" y2="12"></line>
+                </svg>
+                <span>Login</span>
+            </button>
+        </header>
+        <main class="site-main">
+            <section class="content-section"><h2 id="s1" class="section-heading">Personal Growth & Ideas</h2></section>
+            <section class="content-section"><h2 id="s2" class="section-heading">Faith & History</h2></section>
+            <section class="content-section"><h2 id="s3" class="section-heading">Literature & Fiction</h2></section>
+            <section class="content-section"><h2 id="s4" class="section-heading">Science & Tech</h2></section>
+            <section class="content-section"><h2 id="s5" class="section-heading">Finance & Business</h2></section>
+            <section class="content-section"><h2 id="s6" class="section-heading">Health & Lifestyle</h2></section>
+            <section class="content-section">
+                <h2 id="s7" class="section-heading">Ad-Supported Books</h2>
+                <div class="book-card">
+                    <span class="book-card__title">Alice's Adventures in Wonderland</span>
+                    <a href="https://www.gutenberg.org/ebooks/11.html.images" class="book-card__image-link"><img class="book-card__image" src="https://upload.wikimedia.org/wikipedia/commons/1/12/Alice%27s_Adventures_in_Wonderland_-_Carroll%2C_Robinson_-_S001_-_Cover.jpg" alt="Book cover for Alice's Adventures in Wonderland"></a>
+                    <p class="book-card__summary">The story follows a little girl named Alice who tumbles down a rabbit hole into a fantastical world. There, she encounters a variety of eccentric characters in a series of whimsical and often perplexing adventures.</p>
+                </div>
+            </section>
+        </main>
+        <footer class="site-footer">
+            <div><p class="heading-all">Developed by NacerDev25</p></div>
+        </footer>
     </div>
-</section>
-</main>
-<footer class="site-footer">
-    <div>
-        <p class="heading-all">
-            Developed by NacerDev25
-        </p>
-    </div>
-</footer>
 </div>
+
+<!-- Community Page Content (Initially Hidden) -->
+<div id="community-page" class="page-section" style="display: none;">
+    <div class="page-container">
+        <header class="site-header">
+            <h1 id="community-heading" tabindex="-1">BookNest Community</h1>
+            <button id="back-to-home-btn" class="back-to-home-btn">
+                <span>Back</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M19 12H5"></path>
+                    <path d="M12 19l-7-7 7-7"></path>
+                </svg>
+            </button>
+            <div id="Logo-container">
+                <svg role="img" version="1.1" width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <title>BookNest Logo</title>
+                    <path d="M 10,80 Q 50,20 90,80 C 80,95 20,95 10,80 Z" fill="var(--primary-color)"></path>
+                    <text x="50" y="68" font-family="system-ui, -apple-system, sans-serif" font-size="40" font-weight="bold" fill="var(--surface-color)" text-anchor="middle">B</text>
+                </svg>
+            </div>
+            <button id="profile-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle>
+                </svg>
+                <span>My Account</span>
+            </button>
+        </header>    
+        <main class="site-main community-main">
+            <div class="feed-and-sidebar-container">
+                <div class="feed-container" role="feed">
+                    <article class="post-card" aria-labelledby="post-author-1">
+                        <div class="post-header">
+                            <img src="https://via.placeholder.com/40" alt="" class="author-avatar">
+                            <div>
+                                <h3 class="author-name" id="post-author-1">Member Name</h3>
+                                <p class="post-timestamp">5 minutes ago</p>
+                            </div>
+                        </div>
+                        <div class="post-content">
+                            <p>This is an example of what a post looks like. It could be a book review, a question, or just a thought to share with the community. This text is here to fill the space and visualize the design.</p>
+                        </div>
+                        <div class="post-actions">
+                            <button class="like-btn" aria-label="Like post"><i class="ti ti-heart" aria-hidden="true"></i><span>12</span></button>
+                            <button class="comment-btn" aria-label="Comment on post"><i class="ti ti-message-circle" aria-hidden="true"></i><span>3</span></button>
+                        </div>
+                    </article>
+                </div>
+                <aside class="sidebar-container" aria-labelledby="sidebar-heading">
+                    <div class="sidebar-widget">
+                        <h3 id="sidebar-heading">Popular Posts</h3>
+                        <ul>
+                            <li><a href="#">Review of "Book Title"</a></li>
+                            <li><a href="#">Discussion about sci-fi novels</a></li>
+                        </ul>
+                    </div>
+                </aside>
+            </div>
+        </main>
+        <footer class="site-footer">
+            <div><p class="heading-all">Developed by NacerDev25</p></div>
+        </footer>
+    </div>
+</div>
+
 <div id="aria-live-announcer" aria-live="assertive" class="visually-hidden"></div>
 </body>
 </html>
