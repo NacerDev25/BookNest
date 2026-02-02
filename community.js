@@ -14,7 +14,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const backToHomeBtn = document.getElementById('back-to-home-btn');
     if (backToHomeBtn) {
         backToHomeBtn.addEventListener('click', () => {
-            window.location.href = 'index.html';
+            // Redirect back to the main page and signal where to return focus
+            window.location.href = 'index.html?returnFocus=community-btn';
         });
     }
 });
