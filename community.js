@@ -5,10 +5,14 @@ document.addEventListener('DOMContentLoaded', () => {
         // Set tabindex to -1 to make the heading programmatically focusable
         mainHeading.setAttribute('tabindex', '-1');
         
-        // Set focus to the heading with a slight delay for reliability on mobile
+        // Use a more robust focus method for mobile reliability
         setTimeout(() => {
+            // Blur any active element first to prevent focus conflicts
+            if (document.activeElement) {
+                document.activeElement.blur();
+            }
             mainHeading.focus();
-        }, 100);
+        }, 150); // Increased delay for mobile browsers
     }
 
     const backToHomeBtn = document.getElementById('back-to-home-btn');
