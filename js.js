@@ -250,7 +250,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Announce successful navigation to screen reader users
                 const announcer = document.getElementById('aria-live-announcer');
                 if (announcer) {
-                    announcer.textContent = 'Main menu';
+                    announcer.textContent = 'تم الرجوع إلى الصفحة الرئيسية';
                     // Clear the announcer after a delay so it's not read again
                     setTimeout(() => {
                         announcer.textContent = '';
