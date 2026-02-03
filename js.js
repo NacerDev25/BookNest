@@ -1,4 +1,12 @@
 document.addEventListener('DOMContentLoaded', function() {
+    const mainPage = document.getElementById('main-page');
+    const communityPage = document.getElementById('community-page');
+    
+    const communityBtn = document.getElementById('community-btn');
+    const backToHomeBtn = document.getElementById('back-to-home-btn');
+    
+    const communityHeading = document.getElementById('community-heading');
+
     // --- Side Menu Functionality ---
     const menuToggle = document.getElementById('menu-toggle');
     const sideMenu = document.getElementById('side-menu');
@@ -51,28 +59,31 @@ document.addEventListener('DOMContentLoaded', function() {
             closeMenu();
         }
     });
-
-    // --- Navigation and Focus Management ---
-    const communityBtn = document.getElementById('community-btn');
-
+    
+    // --- Community Page Functionality (Reverted to show/hide) ---
     if (communityBtn) {
         communityBtn.addEventListener('click', () => {
-            window.location.href = 'community.html';
+            // Hide main page and show community page
+            if (mainPage) mainPage.style.display = 'none';
+            if (communityPage) communityPage.style.display = 'block';
+
+            // Set focus to the community heading
+            if (communityHeading) {
+                communityHeading.focus();
+            }
         });
     }
 
-    // Check for focus parameter on page load
-    const urlParams = new URLSearchParams(window.location.search);
-    if (urlParams.has('focus')) {
-        const elementToFocusId = urlParams.get('focus');
-        const elementToFocus = document.getElementById(elementToFocusId);
-        if (elementToFocus) {
-            // Remove the focus parameter from the URL to keep it clean
-            urlParams.delete('focus');
-            const newUrl = window.location.pathname + (urlParams.toString() ? '?' + urlParams.toString() : '');
-            history.replaceState(null, '', newUrl);
-            
-            elementToFocus.focus();
-        }
+    if (backToHomeBtn) {
+        backToHomeBtn.addEventListener('click', () => {
+            // Hide community page and show main page
+            if (communityPage) communityPage.style.display = 'none';
+            if (mainPage) mainPage.style.display = 'block';
+
+            // Optional: Set focus back to the community button for better navigation
+            if (communityBtn) {
+                communityBtn.focus();
+            }
+        });
     }
 });
