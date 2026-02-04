@@ -105,53 +105,68 @@ document.addEventListener('DOMContentLoaded', () => {
     toggleMenu(false);
 
     // --- 4. Login Modal Functionality ---
-    const profileBtn = document.querySelector('.profile-container');
-    const loginModalOverlay = document.getElementById('login-modal-overlay');
-    const closeModalBtn = document.getElementById('modal-close-btn');
-    const emailInput = document.getElementById('email-input');
-
-    if (profileBtn && loginModalOverlay && closeModalBtn && emailInput) {
-        // Function to open the modal
-        const openModal = () => {
-            loginModalOverlay.classList.add('visible');
-            // Set focus to the email input for accessibility
-            setTimeout(() => emailInput.focus(), 100);
-        };
-
-        // Function to close the modal
-        const closeModal = () => {
-            loginModalOverlay.classList.remove('visible');
-            // Return focus to the profile button that opened the modal.
-            // Using a small timeout ensures the focus is set correctly after the browser has processed the display change.
-            setTimeout(() => profileBtn.focus(), 0);
-        };
-
-        // Event listener to open the modal
-        profileBtn.addEventListener('click', openModal);
-        profileBtn.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                openModal();
+    // Load the modal HTML from an external file, then initialize its functionality.
+    fetch('login-modal.html')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok: ' + response.statusText);
             }
-        });
+            return response.text();
+        })
+        .then(html => {
+            document.body.insertAdjacentHTML('beforeend', html);
 
-        // Event listener to close the modal with the button
-        closeModalBtn.addEventListener('click', closeModal);
+            // Now that the modal HTML is loaded, we can select its elements and add listeners.
+            const loginBtn = document.getElementById('login-btn'); // Corrected to target the actual login button
+            const loginModalOverlay = document.getElementById('login-modal-overlay');
+            const closeModalBtn = document.getElementById('modal-close-btn');
+            const emailInput = document.getElementById('email-input');
 
-        // Event listener to close the modal by clicking the overlay
-        loginModalOverlay.addEventListener('click', (e) => {
-            if (e.target === loginModalOverlay) {
-                closeModal();
+            if (loginBtn && loginModalOverlay && closeModalBtn && emailInput) {
+                // Function to open the modal
+                const openModal = () => {
+                    loginModalOverlay.classList.add('visible');
+                    // Set focus to the email input for accessibility
+                    setTimeout(() => emailInput.focus(), 100);
+                };
+
+                // Function to close the modal
+                const closeModal = () => {
+                    loginModalOverlay.classList.remove('visible');
+                    // Return focus to the login button that opened the modal
+                    setTimeout(() => loginBtn.focus(), 0);
+                };
+
+                // Event listener to open the modal
+                loginBtn.addEventListener('click', openModal);
+                loginBtn.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        openModal();
+                    }
+                });
+
+                // Event listener to close the modal with the button
+                closeModalBtn.addEventListener('click', closeModal);
+
+                // Event listener to close the modal by clicking the overlay
+                loginModalOverlay.addEventListener('click', (e) => {
+                    if (e.target === loginModalOverlay) {
+                        closeModal();
+                    }
+                });
+
+                // Event listener to close the modal with the Escape key
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape' && loginModalOverlay.classList.contains('visible')) {
+                        closeModal();
+                    }
+                });
             }
+        })
+        .catch(error => {
+            console.error('Error fetching or initializing login modal:', error);
         });
-
-        // Event listener to close the modal with the Escape key
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && loginModalOverlay.style.display === 'flex') {
-                closeModal();
-            }
-        });
-    }
 
     // --- 5. Dark/Light Mode Toggle ---
     const modeToggle = document.getElementById("mode-toggle");
