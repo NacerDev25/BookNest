@@ -122,6 +122,27 @@ document.addEventListener('DOMContentLoaded', () => {
             const closeModalBtn = document.getElementById('modal-close-btn');
             const emailInput = document.getElementById('email-input');
 
+            // --- Password Toggle Functionality ---
+            const passwordInput = document.getElementById('password-input');
+            const passwordToggleBtn = document.getElementById('password-toggle-btn');
+            const eyeIcon = document.getElementById('eye-icon');
+            const eyeOffIcon = document.getElementById('eye-off-icon');
+
+            if (passwordToggleBtn && passwordInput && eyeIcon && eyeOffIcon) {
+                passwordToggleBtn.addEventListener('click', () => {
+                    // Toggle the password input type
+                    const isPassword = passwordInput.type === 'password';
+                    passwordInput.type = isPassword ? 'text' : 'password';
+
+                    // Toggle the icon visibility
+                    eyeIcon.style.display = isPassword ? 'none' : 'block';
+                    eyeOffIcon.style.display = isPassword ? 'block' : 'none';
+
+                    // Update the aria-label for accessibility
+                    passwordToggleBtn.setAttribute('aria-label', isPassword ? 'إخفاء كلمة المرور' : 'إظهار كلمة المرور');
+                });
+            }
+
             if (loginBtn && loginModalOverlay && closeModalBtn && emailInput) {
                 // Function to open the modal
                 const openModal = () => {
