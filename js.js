@@ -139,7 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     eyeOffIcon.style.display = isPassword ? 'block' : 'none';
 
                     // Update the aria-label for accessibility
-                    passwordToggleBtn.setAttribute('aria-label', isPassword ? 'إخفاء كلمة المرور' : 'إظهار كلمة المرور');
+                    passwordToggleBtn.setAttribute('aria-label', isPassword ? 'Hide Password' : 'Show Password');
                 });
             }
 
